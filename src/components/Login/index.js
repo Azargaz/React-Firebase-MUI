@@ -5,6 +5,8 @@ import LockOutlined from '@material-ui/icons/LockOutlined';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Link, withRouter } from 'react-router-dom';
 
+import firebase from '../firebase';
+
 const styles = theme => ({
     main: {
         width: 'auto',
@@ -44,11 +46,9 @@ function Login(props){
     const [password, setPassword] = useState('')
 
     function onSubmit(e){
-        e.preventDefault()
-        console.log('email: '+email)
-        console.log('password: '+password)
+		e.preventDefault()
     }
-
+    
     return (
         <main className={classes.main}>
             <Paper className={classes.paper}>
@@ -77,6 +77,7 @@ function Login(props){
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        onClick={onLogin}
                     >
                         Sign In
                     </Button>
@@ -95,6 +96,17 @@ function Login(props){
             </Paper>
         </main>
     )
+    
+    async function onLogin() {
+        try {
+            await firebase.login(email,password)
+
+            props.history.replace('/dashboard')
+        }
+        catch(err) {
+            alert(err.message)
+        }
+    }
 }
 
 export default withRouter(withStyles(styles)(Login))

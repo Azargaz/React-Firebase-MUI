@@ -1,9 +1,11 @@
 import React,{useState} from 'react';
 
-import { Typography, Paper, Avatar, Button, FormControl, Input, InputLabel } from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
-import withStyles from '@material-ui/core/styles/withStyles'
-import { Link, withRouter } from 'react-router-dom'
+import { Typography, Paper, Avatar, Button, FormControl, Input, InputLabel } from '@material-ui/core';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import withStyles from '@material-ui/core/styles/withStyles';
+import { Link, withRouter } from 'react-router-dom';
+
+import firebase from '../firebase';
 
 const styles = theme => ({
     main: {
@@ -46,11 +48,7 @@ function Register(props){
     const [fruit, setFruit] = useState('')
 
     function onSubmit(e){
-        e.preventDefault()//blocks the postback event of the page
-        console.log('email: '+email)
-        console.log('password: '+password)
-        console.log('name: '+name)
-        console.log('fruit: '+fruit)
+		e.preventDefault()
     }
 
     return (
@@ -93,7 +91,9 @@ function Register(props){
                         fullWidth
                         variant="contained"
                         color="primary"
-                        className={classes.submit}>
+                        className={classes.submit}
+                        onClick={onRegister}
+                    >
                         Register
                     </Button>
 
@@ -111,6 +111,18 @@ function Register(props){
             </Paper>
         </main>
     )
+    
+    async function onRegister() {
+        try {
+            await firebase.register(name,email,password)
+            await firebase.addFruit(fruit)
+
+            props.history.replace('/dashboard')
+        }
+        catch(err) {
+            alert(err.message)
+        }
+    }
 }
 
 export default withRouter(withStyles(styles)(Register))
