@@ -1,6 +1,6 @@
-## Personal Website
+## React Website
 
-This project is my personal website made using React+Firebase+MaterialsUI.
+This project is website made using React+Firebase+MaterialsUI. It was made to learn basics of React, MaterialUI and Google Firebase.
 
 ## Available Scripts
 
@@ -13,8 +13,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
