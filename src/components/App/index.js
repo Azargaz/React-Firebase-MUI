@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import firebase from '../firebase';
+import {CircularProgress} from '@material-ui/core';
 
 import Dashboard from '../Dashboard';
 import HomePage from '../HomePage';
@@ -13,7 +15,15 @@ import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 const theme = createMuiTheme()
 
 function App(props){
-    return (
+    const [firebaseInitialized, setFirebaseInitialized] = useState(false)
+
+    useEffect(() => {
+        firebase.isInitialized().then(val => {
+            setFirebaseInitialized(val)
+        })
+    })
+    
+    return firebaseInitialized !== false ? (
         <MuiThemeProvider theme={theme}>
             <CssBaseline/>
             <Router>
@@ -25,7 +35,9 @@ function App(props){
                 </Switch>
             </Router>
         </MuiThemeProvider>
-    );
+    )
+    :
+    <div id="loader"><CircularProgress/></div>
 }
 
 export default App

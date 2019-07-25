@@ -47,6 +47,22 @@ class Firebase {
             fruit: fruit
         })
     }
+
+    isInitialized() {
+        return new Promise(resolve => {
+            this.auth.onAuthStateChanged(resolve)
+        })
+    }
+
+    getCurrentUsername() {
+        return this.auth.currentUser && this.auth.currentUser.displayName
+    }
+
+    async getCurrentUserFruit() {
+        const fruit = await this.db.doc(`users/${this.auth.currentUser.uid}`).get()
+
+        return fruit.get('fruit')
+    }
 }
 
 export default new Firebase()

@@ -67,7 +67,7 @@ function Login(props){
                     </FormControl>
                     <FormControl margin="normal" required fullWidth>
                         <InputLabel htmlFor="password">Password</InputLabel>
-                        <Input id="password" name="password" type="password" autoComplete="off" autoFocus value={password} onChange={
+                        <Input id="password" name="password" type="password" autoComplete="off" value={password} onChange={
                             e => setPassword(e.target.value)
                         } />
                     </FormControl>
