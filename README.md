@@ -16,11 +16,19 @@ REACT_APP_STORAGE_BUCKET="your-bucket"
 REACT_APP_MESSAGING_SENDER_ID="your-id"
 ```
 
+#### Dependencies
+
+Install all dependencies using npm:
+
+`npm install`
+
+#### Start cmd
+
 Then in the project directory, run:
 
 `npm start`
 
-Runs the app in the development mode.<br>
+It will run the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
