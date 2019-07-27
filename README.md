@@ -2,19 +2,11 @@
 
 This project is website made using React+Firebase+MaterialUI. It was made to learn basics of React, MaterialUI and Google Firebase.
 
-## Available Scripts
+## How to run
 
-In the project directory, you can run:
+#### Firebase
 
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-If you want to run this locally you need to add `.env` file to your root folder with following keys inside:
+If you want to run this locally you need to add to your root folder `.env` file (with your own Firebase API key and other stuff) with following keys inside:
 ```
 REACT_APP_API_KEY="your-key"
 REACT_APP_AUTH_DOMAIN="your-domain"
@@ -23,3 +15,13 @@ REACT_APP_PROJECT_ID="your-project-id"
 REACT_APP_STORAGE_BUCKET="your-bucket"
 REACT_APP_MESSAGING_SENDER_ID="your-id"
 ```
+
+Then in the project directory, run:
+
+`npm start`
+
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
