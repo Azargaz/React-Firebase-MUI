@@ -1,6 +1,6 @@
 ## React Website
 
-This project is website made using React+Firebase+MaterialsUI. It was made to learn basics of React, MaterialsUI and Google Firebase.
+This project is website made using React+Firebase+MaterialUI. It was made to learn basics of React, MaterialUI and Google Firebase.
 
 ## Available Scripts
 
